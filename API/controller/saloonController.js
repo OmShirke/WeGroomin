@@ -64,3 +64,25 @@ export const countByCity = async (req, res, next) => {
     next(err);
   }
 };
+
+export const countByType = async (req, res, next) => {
+  try {
+    const cuttingCount = await Saloon.countDocuments({
+      type: "cutting",
+    });
+    const massageCount = await Saloon.countDocuments({
+      type: "massage",
+    });
+    const pedicureCount = await Saloon.countDocuments({ type: "pedicure" });
+    const spaCount = await Saloon.countDocuments({ type: "cutting and spa" });
+
+    res.status(200).json([
+      { type: "cutting", count: cuttingCount },
+      { type: "massage", count: massageCount },
+      { type: "pedicure", count: pedicureCount },
+      { type: "cutting and spa", count: spaCount },
+    ]);
+  } catch (err) {
+    next(err);
+  }
+};

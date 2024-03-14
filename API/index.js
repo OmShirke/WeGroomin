@@ -1,10 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoute from "./routes/auth.js";
-import userRoute from "./routes/users.js";
-import saloonRoute from "./routes/saloon.js";
-import slotRoute from "./routes/slot.js";
+import authRoute from "./routes/authRoutes.js";
+import userRoute from "./routes/usersRoutes.js";
+import saloonRoute from "./routes/saloonRoutes.js";
+import slotRoute from "./routes/slotRoutes.js";
 import cookieParser from "cookie-parser";
 
 const app = express();

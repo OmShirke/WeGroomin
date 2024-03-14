@@ -5,7 +5,7 @@ import {
   getSlot,
   getSlots,
   updateSlot,
-} from "../controller/slot.js";
+} from "../controller/slotController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();

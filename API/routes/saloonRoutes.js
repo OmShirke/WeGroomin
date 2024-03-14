@@ -1,12 +1,13 @@
 import express from "express";
 import {
   countByCity,
+  countByType,
   createSaloon,
   deleteSaloon,
   getSaloon,
   getSaloons,
   updateSaloon,
-} from "../controller/saloon.js";
+} from "../controller/saloonController.js";
 import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 const router = express.Router();
 
@@ -25,6 +26,6 @@ router.get("/find/:id", getSaloon);
 //get all
 router.get("/", getSaloons);
 router.get("/countByCity", countByCity);
-router.get("/countByType", getSaloons);
+router.get("/countByType", countByType);
 
 export default router;
