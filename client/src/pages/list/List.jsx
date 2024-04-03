@@ -1,4 +1,5 @@
 import "./list.css";
+import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
@@ -14,8 +15,10 @@ const List = () => {
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
+  const [gender, setGender] = useState("");
 
   const { data, loading, error, refetch } = useFetch(`/saloon?city=${destination}`)
+  const handleChange = () => { }
 
   return (
     <div>
@@ -26,11 +29,11 @@ const List = () => {
           <div className="listSearch">
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
-              <label>Destination</label>
+              <label>City</label>
               <input placeholder={destination} type="text" />
             </div>
             <div className="lsItem">
-              <label>Check-in Date</label>
+              <label>Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
                 "MM/dd/yyyy"
@@ -48,41 +51,31 @@ const List = () => {
               <div className="lsOptions">
                 <div className="lsOptionItem">
                   <span className="lsOptionText">
-                    Min price <small>per night</small>
+                    Min price
                   </span>
                   <input type="number" className="lsOptionInput" />
                 </div>
+
+                {/* <div className="lsOptionItem">
+                  <Select
+                    value={gender}
+                    onChange={handleChange}
+                  >
+                    {options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </Select>
+                </div> */}
+
                 <div className="lsOptionItem">
-                  <span className="lsOptionText">
-                    Max price <small>per night</small>
-                  </span>
-                  <input type="number" className="lsOptionInput" />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Adult</span>
+                  <span className="lsOptionText">Slot</span>
                   <input
                     type="number"
                     min={1}
                     className="lsOptionInput"
-                    placeholder={options.adult}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Children</span>
-                  <input
-                    type="number"
-                    min={0}
-                    className="lsOptionInput"
-                    placeholder={options.children}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Room</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.room}
+                    placeholder={options.slot}
                   />
                 </div>
               </div>

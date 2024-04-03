@@ -5,7 +5,7 @@ const SearchItem = ({ item }) => {
   return (
     <div className="searchItem">
       <img
-        src={item.photo[0]}
+        //src={item.photo[0]}
         alt=""
         className="siImg"
       />
@@ -30,7 +30,7 @@ const SearchItem = ({ item }) => {
           <button>{item.rating}</button>
         </div>}
         <div className="siDetailTexts">
-          <span className="siPrice">${item.cheapestPrice}</span>
+          <span className="siPrice">Rs.{item.cheapestPrice}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
           <Link to={`/saloon/${item._id}`} />
           <button className="siCheckButton">See availability</button>

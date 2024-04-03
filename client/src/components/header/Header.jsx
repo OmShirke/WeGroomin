@@ -44,7 +44,7 @@ const Header = ({ type }) => {
   };
 
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
+    navigate("/saloons", { state: { destination, date, options } });
   };
 
   return (
@@ -54,10 +54,10 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        <div className="headerList">
+        {/* <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <span></span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
@@ -75,14 +75,14 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faTaxi} />
             <span>Airport taxis</span>
           </div>
-        </div>
+        </div> */}
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
               A lifetime of discounts? It's Genius.
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
+              Get rewarded for your Saloon – unlock instant savings of 10% or
               more with a free Lamabooking account
             </p>
             <button className="headerBtn">Sign in / Register</button>
@@ -91,7 +91,7 @@ const Header = ({ type }) => {
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="Enter your city"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
